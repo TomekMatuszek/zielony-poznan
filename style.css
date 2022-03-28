@@ -2,7 +2,7 @@ body {
     padding: 0;
     margin: 0;
 }
-html, body{
+html, body, #container{
     height: 100%;
     width: 100%;
 }
@@ -21,8 +21,8 @@ html, body{
 
 #dane {
     position: absolute;
-    right: 40px;
-    bottom: 40px;
+    right: 2%;
+    bottom: 5%;
     height: 200px;
     width: 300px;
     background: #b3b1b1;
@@ -35,8 +35,8 @@ html, body{
 
 #geokoder_przycisk {
     position: absolute;
-    left: 60px;
-    top: 35px;
+    left: 4%;
+    top: 7%;
     height: 50px;
     width: 50px;
     z-index: 5;
