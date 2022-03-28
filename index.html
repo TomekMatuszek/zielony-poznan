@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapa Poznania</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script src="wektory/poznan.geojson" type="text/javascript"></script>
+        <script src="wektory/poznan_admin.geojson" type="text/javascript"></script>
+        <script src="wektory/poz_tereny-zielone.geojson" type="text/javascript"></script>
+        <script src="wektory/pomniki_przyrody.geojson" type="text/javascript"></script>
+        <script src="wektory/rezerwaty.geojson" type="text/javascript"></script>
+        <script src="wektory/natura2000.geojson" type="text/javascript"></script>
+        <script src="wektory/obszary_chkrajobrazu.geojson" type="text/javascript"></script>
+        <script src="wektory/uzytki_ekologiczne.geojson" type="text/javascript"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="lib/L.Geoserver.js"></script>
+        <script src="lib/Control.OSMGeocoder.js"></script>
+        <link rel="stylesheet" href="lib/Control.OSMGeocoder.css" />
+    </head>
+
+    <body>
+        <div id="menu">
+            <input type="button" class="przycisk" id="przycisk" value="Dodaj geokoder"/>
+            <input type="button" class="przycisk" id="przycisk2" value="Usuń geokoder"/>
+        </div>
+        <div id="mapid"></div>
+        <div id="dane">Tu będzie treść</div>
+        <div id="geokoder_przycisk"><button id='geokoder_img'><img id='lupa_img' src='lupa.png'></button></div>
+        <script src="script.js"></script>
+    </body>
+</html>
