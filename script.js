@@ -102,3 +102,14 @@ document.getElementById("geokoder_przycisk").addEventListener("click", function(
         czy_geokoder = 1;
     }
 });
+
+var czy_info = 1;
+document.getElementById("info_przycisk").addEventListener("click", function(){
+    if (czy_info == 1) {
+        document.getElementById("dane").style.display = 'none';
+        czy_info = 0;
+    } else {
+        document.getElementById("dane").style.display = 'block';
+        czy_info = 1;
+    }
+});
