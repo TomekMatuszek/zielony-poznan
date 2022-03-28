@@ -38,20 +38,23 @@ html, body{
 
 #dane {
     position: absolute;
-    left: 50px;
-    top: 40px;
-    height: 60px;
-    width: 200px;
-    background: #dddddd;
+    right: 40px;
+    bottom: 40px;
+    height: 200px;
+    width: 300px;
+    background: #b3b1b1;
+    border-color: #272727;
+    border-style: solid;
     z-index: 5;
+    font-size: 30px;
 }
 
 #geokoder_przycisk {
     position: absolute;
-    left: 10px;
-    top: 150px;
-    height: 30px;
-    width: 30px;
+    left: 60px;
+    top: 35px;
+    height: 50px;
+    width: 50px;
     z-index: 5;
 }
 
@@ -66,6 +69,6 @@ html, body{
 }
 
 #lupa_img {
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
 }

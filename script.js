@@ -23,6 +23,7 @@ var drzewa = L.tileLayer.wms('http://wms2.geopoz.poznan.pl/geoserver/srodowisko/
     pane: 'najniższe'
 })
 
+document.getElementById('dane').style.fontSize = "30px";
 function layer_hover(feature, layer) {
     var popupContent = "<b>Nazwa:</b> " + feature.properties.NAZWA +
     "<br><b>L. mieszkańców:</b> " + feature.properties.LICZBA_MIESZKANCOW;
