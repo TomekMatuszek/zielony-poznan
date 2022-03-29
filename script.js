@@ -74,7 +74,7 @@ var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: 'orange', pane: '
 var formy_ochrony = L.layerGroup([pomniki, rezerwaty, natura2000, obszary_krajobrazu, uzytki_ekologiczne]);
 
 var osmGeocoder = new L.Control.OSMGeocoder({text: 'Wyszukaj', placeholder: 'wpisz nazwę...', bounds: L.LatLngBounds(poznan),
-                                            collapsed: false, position: 'topleft'});
+                                            collapsed: true, position: 'topleft'}).addTo(map);
 
 
 var baseMaps = {
@@ -91,17 +91,6 @@ var overlayMaps = {
 };
 
 var layer_control = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
-var czy_geokoder = 0;
-document.getElementById("geokoder_przycisk").addEventListener("click", function(){
-    if (czy_geokoder == 1) {
-        map.removeControl(osmGeocoder);
-        czy_geokoder = 0;
-    } else {
-        map.addControl(osmGeocoder);
-        czy_geokoder = 1;
-    }
-});
 
 var czy_info = 1;
 document.getElementById("info_przycisk").addEventListener("click", function(){

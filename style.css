@@ -33,30 +33,11 @@ html, body, #container{
     display: block;
 }
 
-#geokoder_przycisk {
-    position: absolute;
-    left: 4%;
-    top: 7%;
-    height: 50px;
-    width: 50px;
-    z-index: 5;
-}
-
-#geokoder_img {
-    border-color: #0e57b6;
-    background: #76b6ca;
-}
-
-#geokoder_img:hover {
-    border-color: #0e57b6;
-    background: #a5cfdb;
-}
-
 #info_przycisk {
     position: absolute;
-    right: 15px;
-    bottom: 25px;
-    height: 20px;
-    width: 20px;
+    right: 1%;
+    top: 12%;
+    height: 40px;
+    width: 40px;
     z-index: 5;
 }
