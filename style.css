@@ -21,8 +21,8 @@ html, body, #container{
 
 #dane {
     position: absolute;
-    right: 2%;
-    bottom: 5%;
+    right: 40px;
+    bottom: 40px;
     height: 200px;
     width: 300px;
     background: #b3b1b1;
@@ -35,9 +35,9 @@ html, body, #container{
 
 #info_przycisk {
     position: absolute;
-    right: 1%;
-    top: 12%;
-    height: 40px;
-    width: 40px;
+    right: 25px;
+    top: 120px;
+    height: 30px;
+    width: 30px;
     z-index: 5;
 }

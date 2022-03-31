@@ -42,6 +42,31 @@ function layer_hover(feature, layer) {
     });
 }
 
+var ikona = L.icon({
+    iconUrl: 'pomnik_przyrody.png',
+    iconSize:     [20, 20], // width and height of the image in pixels
+    iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+
+function pomniki_ikony(point, latlng) {
+    return L.marker(latlng, {icon: ikona});
+}
+
+function pomniki_punkty(point, latlng) {
+    return L.circleMarker(latlng, {radius: 1, color: '#043812'});
+}
+
+map.on('zoomend', function(ev){
+    if (map.getZoom() > 15) {
+        formy_ochrony.removeLayer(pomniki_pkt)
+        formy_ochrony.addLayer(pomniki_icon)
+    } else {
+        formy_ochrony.removeLayer(pomniki_icon)
+        formy_ochrony.addLayer(pomniki_pkt)
+    }
+});
+
 var admin = L.geoJson(poznan_admin, {color: 'blue', fillOpacity: 0.1, weight: 2,
     pane: 'średnie',
     onEachFeature: layer_hover
@@ -66,12 +91,13 @@ var tereny_zielone = L.geoJson(tereny_zielone, {//color: 'green', weight: 0, fil
                 {color: 'green', weight: 0, fillOpacity: 1, pane: 'niskie'};
     }
 });
-var pomniki = L.geoJson(pomniki, {color: 'red', pane: 'wysokie'});
-var rezerwaty = L.geoJson(rezerwaty, {color: 'black', pane: 'wysokie'});
-var natura2000 = L.geoJson(natura2000, {color: 'red', pane: 'wysokie'});
-var obszary_krajobrazu = L.geoJson(obszary_krajobrazu, {color: 'green', pane: 'wysokie'});
-var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: 'orange', pane: 'wysokie'});
-var formy_ochrony = L.layerGroup([pomniki, rezerwaty, natura2000, obszary_krajobrazu, uzytki_ekologiczne]);
+var pomniki_pkt = L.geoJson(pomniki, {pointToLayer: pomniki_punkty, pane: 'wysokie'});
+var pomniki_icon = L.geoJson(pomniki, {pointToLayer: pomniki_ikony, pane: 'wysokie'});
+var rezerwaty = L.geoJson(rezerwaty, {color: '#009900', pane: 'wysokie'});
+var natura2000 = L.geoJson(natura2000, {color: '#00e600', pane: 'wysokie'});
+var obszary_krajobrazu = L.geoJson(obszary_krajobrazu, {color: '#c6ff1a', pane: 'wysokie'});
+var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: '#ffff66', pane: 'wysokie'});
+var formy_ochrony = L.layerGroup([pomniki_pkt, rezerwaty, natura2000, obszary_krajobrazu, uzytki_ekologiczne]);
 
 var osmGeocoder = new L.Control.OSMGeocoder({text: 'Wyszukaj', placeholder: 'wpisz nazwę...', bounds: L.LatLngBounds(poznan),
                                             collapsed: true, position: 'topleft'}).addTo(map);
