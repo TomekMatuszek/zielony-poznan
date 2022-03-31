@@ -64,7 +64,7 @@ function pomniki_popup(feature, layer){
     if (gatunek == 'brak danych') {
         var gatunek = "<span style='color:red'>brak danych</span>"
     };
-    layer.bindPopup("<b>center>Pomnik przyrody</center><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> " + gatunek)
+    layer.bindPopup("<b><center>Pomnik przyrody</center><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> " + gatunek)
 }
 
 // dodawanie odpowiedniej ikony pomników w zależności od zoomu
