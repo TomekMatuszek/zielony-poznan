@@ -20,17 +20,17 @@ html, body, #container{
 }
 
 #dane {
+    font-size: 24px!important;
+    display: block;
     position: absolute;
     right: 40px;
     bottom: 40px;
-    height: 200px;
-    width: 300px;
+    height: auto;
+    width: auto;
     background: #b3b1b1;
     border-color: #272727;
     border-style: solid;
     z-index: 5;
-    font-size: 30px;
-    display: block;
 }
 
 #info_przycisk {
