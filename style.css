@@ -20,7 +20,7 @@ html, body, #container{
 }
 
 #dane {
-    font-size: 24px!important;
+    font-size: 24px;
     display: block;
     position: absolute;
     right: 40px;
