@@ -186,13 +186,13 @@ function getColor_formy(x) {
 var legend_zielen = L.control({position: 'bottomleft'});
 legend_zielen.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<strong><span style='line-height: 30px;'>Typy terenów zielonych</span></strong>"],
+    labels = ["<strong><span style='line-height:30px;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTypy terenów zielonych</span></strong>"],
     categories = ['Cmentarze', 'Obiekt sportowy', 'Ogród działkowy', 'Parki i skwery', 'Zieleń', 'Fort'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
             labels.push(
-                '<i class="square" style="height:20px;width:20px;background:' + getColor_zielen(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                '<i style="height:20px;width:20px;background:' + getColor_zielen(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
                 );
         }
         div.innerHTML = labels.join('<br>');
@@ -203,16 +203,19 @@ legend_zielen.onAdd = function(map) {
 var legend_formy = L.control({position: 'bottomleft'});
 legend_formy.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<strong><span style='line-height: 30px;'>Formy ochrony przyrody</span></strong>"],
+    labels = ["<strong><span style='line-height: 30px;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFormy ochrony przyrody</span></strong>"],
     categories = ['Rezerwaty', 'Natura 2000', 'Użytki ekologiczne', 'Obszary chronionego krajobrazu'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
             labels.push(
-                '<i class="square" style="height:20px;width:20px;background:' + getColor_formy(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                '<i style="height:20px;width:20px;background:' + getColor_formy(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
                 );
         }
         div.innerHTML = labels.join('<br>');
+    labels.push('<img src="pomnik_przyrody.png" style="height:20px;width:20px;">' +
+        '<i style="height:6px;width:6px;border-radius:3px;background:#043812;margin-top:8px;"></i>&nbsp&nbspPomniki przyrody');
+    div.innerHTML = labels.join('<br>');
     return div;
 };
 
