@@ -34,6 +34,7 @@ html, body, #container{
     width: 100%;
     border-width: 0px;
     background-color: #cee5f1;
+    border-radius: 5px;
 }
 
 .menu_przycisk:hover {
@@ -167,4 +168,11 @@ html, body, #container{
 }
 .menu_side:hover .tooltiptextR {
     visibility: visible;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    background-color: #cee5f1!important;
+}
+.leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
+    background-color: #9fd1ec!important;
 }
