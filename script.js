@@ -64,7 +64,7 @@ function pomniki_popup(feature, layer){
     if (gatunek == 'brak danych') {
         var gatunek = "<span style='color:red'>brak danych</span>"
     };
-    layer.bindPopup("<b><center>Pomnik przyrody</center><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> " + gatunek)
+    layer.bindPopup("<b><u><center>Pomnik przyrody</center></u><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> <i>" + gatunek)
 }
 
 // dodawanie odpowiedniej ikony pomników w zależności od zoomu
@@ -107,22 +107,22 @@ var pomniki_pkt = L.geoJson(pomniki, {pointToLayer: pomniki_punkty, pane: 'wysok
 var pomniki_icon = L.geoJson(pomniki, {pointToLayer: pomniki_ikony, pane: 'wysokie', onEachFeature: pomniki_popup});
 var rezerwaty = L.geoJson(rezerwaty, {color: '#4f9839', fillOpacity: 0.4, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><center>Rezerwat</center><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Rezerwat</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
 }
 });
 var natura2000 = L.geoJson(natura2000, {color: '#4ac626', fillOpacity: 0.4, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><center>Obszar Natura 2000</center><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Obszar Natura 2000</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
 }
 });
 var obszary_krajobrazu = L.geoJson(obszary_krajobrazu, {color: '#82c338', fillOpacity: 0.4, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><center>Obszar chronionego krajobrazu</center><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Obszar chronionego krajobrazu</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
 }
 });
 var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: '#bae537', fillOpacity: 0.4, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><center>Użytek ekologiczny</center><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Użytek ekologiczny</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
 }
 });
 

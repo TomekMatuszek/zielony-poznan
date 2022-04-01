@@ -27,6 +27,7 @@ html, body, #container{
     bottom: 40px;
     height: auto;
     width: auto;
+    padding: 10px;
     background: #b3b1b1;
     border-color: #272727;
     border-style: solid;
