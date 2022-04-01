@@ -8,15 +8,41 @@ html, body, #container{
 }
 
 #mapid {
-    height: 95%;
+    height: 94%;
     z-index: 0;
 }
 
 #menu {
-    height: 5%;
+    height: 6%;
+    line-height: 2.5vw;
+    background-color: #cee5f1;
+    border-bottom: 2px solid #272727;
+    box-sizing: border-box;
+}
+
+.menu_side {
+    height: 100%;
+    width: 3%;
+    float: left;
+}
+
+.menu_przycisk {
+    height: 100%;
+    width: 100%;
+    border-width: 0px;
+    background-color: #cee5f1;
+}
+
+.menu_przycisk:hover {
+    background-color: #70afd1;
+}
+
+#title {
+    width: 94%;
     text-align: center;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 2vw;
+    font-family: 'Times New Roman', Times, serif;
+    float: left;
 }
 
 #dane {

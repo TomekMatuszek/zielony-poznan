@@ -33,7 +33,8 @@ function layer_hover(feature, layer) {
         this.setStyle({color: 'red', fillOpacity: 0});
         document.getElementById('dane').innerHTML = "<b>Nazwa:</b> " + feature.properties.NAZWA +
         "<br><b>Liczba mieszkańców:</b> " + feature.properties.LICZBA_MIESZKANCOW +
-        "<br><b>Gęstość zaludnienia:</b> " + feature.properties.GESTOSC_ZALUDNIEINA + " os./km<sup>2</sup>" ;
+        "<br><b>Gęstość zaludnienia:</b> " + feature.properties.GESTOSC_ZALUDNIEINA + " os./km<sup>2</sup>" +
+        "<br><b>Pokrycie terenami zielonymi:</b> " + feature.properties.pokrycie_zielenia + "%";
     });
     layer.on('mouseout', function (e) {
         this.bringToBack()
