@@ -13,6 +13,7 @@ html, body, #container{
 }
 
 #menu {
+    width: 100%;
     height: 6%;
     line-height: 2.5vw;
     background-color: #cee5f1;
@@ -47,6 +48,7 @@ html, body, #container{
 
 #dane {
     font-size: 24px;
+    color: #272727;
     display: block;
     position: absolute;
     right: 40px;
@@ -54,7 +56,7 @@ html, body, #container{
     height: auto;
     width: auto;
     padding: 10px;
-    background: #b3b1b1;
+    background: #cee5f1;
     border-color: #272727;
     border-style: solid;
     z-index: 5;
@@ -107,7 +109,7 @@ html, body, #container{
 .info {
     padding: 6px 8px;
     font: 20px 'Times New Roman', Times, serif;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 }

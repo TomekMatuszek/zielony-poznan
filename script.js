@@ -142,11 +142,11 @@ var baseMaps = {
 
 // warstwy z danymi
 var overlayMaps = {
-    "Poznań": poznan,
+    "granica Poznania": poznan,
     "osiedla": admin,
     "tereny zielone": tereny_zielone,
-    "zadrzewienie": drzewa,
-    "formy ochrony przyrody": formy_ochrony
+    "formy ochrony przyrody": formy_ochrony,
+    "zadrzewienie": drzewa
 };
 
 // przycisk zmiany widoczności warstw

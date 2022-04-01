@@ -54,5 +54,5 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-github-circled:before { content: '\f09b'; font-size: 2.5vw; text-align: center; margin-left: 0px;} /* '' */
+.icon-github-circled:before { content: '\f09b'; font-size: 2.5vw; text-align: center; margin: 0px;} /* '' */
 .icon-github-squared:before { content: '\f300'; } /* '' */
