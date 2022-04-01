@@ -162,3 +162,75 @@ document.getElementById("info_przycisk").addEventListener("click", function(){
         czy_info = 1;
     }
 });
+
+// funkcje kolorów legendy
+function getColor_zielen(x) {
+    return x == 'Cmentarze' ? "#9dcea1" :
+           x == 'Obiekt sportowy' ? "#bdee93" :
+           x == 'Ogród działkowy' ? "#93eeb3" :
+           x == 'Parki i skwery' ? "#35c841" :
+           x == 'Zieleń' ? "green":
+           x == 'Fort' ? "#a9c393":
+                        "green";
+}
+
+function getColor_formy(x) {
+    return x == 'Rezerwaty' ? "#4f9839" :
+           x == 'Obszary Natura 2000' ? "#4ac626" :
+           x == 'Użytki ekologiczne' ? "#bae537" :
+           x == 'Obszary chronionego krajobrazu' ? "#82c338" :
+                        "green";
+}
+
+// legenda warstwy terenów zielonych
+var legend_zielen = L.control({position: 'bottomleft'});
+legend_zielen.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    labels = ["<strong><span style='line-height: 30px;'>Typy terenów zielonych</span></strong>"],
+    categories = ['Cmentarze', 'Obiekt sportowy', 'Ogród działkowy', 'Parki i skwery', 'Zieleń', 'Fort'];
+    
+    for (var i = 0; i < categories.length; i++) {
+            div.innerHTML += 
+            labels.push(
+                '<i class="square" style="height:20px;width:20px;background:' + getColor_zielen(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                );
+        }
+        div.innerHTML = labels.join('<br>');
+    return div;
+};
+
+// legenda warstwy form ochrony przyrody
+var legend_formy = L.control({position: 'bottomleft'});
+legend_formy.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    labels = ["<strong><span style='line-height: 30px;'>Formy ochrony przyrody</span></strong>"],
+    categories = ['Rezerwaty', 'Natura 2000', 'Użytki ekologiczne', 'Obszary chronionego krajobrazu'];
+    
+    for (var i = 0; i < categories.length; i++) {
+            div.innerHTML += 
+            labels.push(
+                '<i class="square" style="height:20px;width:20px;background:' + getColor_formy(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                );
+        }
+        div.innerHTML = labels.join('<br>');
+    return div;
+};
+
+// dodawanie i usuwanie legend
+map.on('overlayadd', function(ev) {
+    if (map.hasLayer(tereny_zielone) == true) {
+        legend_zielen.addTo(map);
+    }
+    if (map.hasLayer(formy_ochrony) == true) {
+        legend_formy.addTo(map);
+    }
+});
+
+map.on('overlayremove', function(eventLayer) {
+    if (map.hasLayer(tereny_zielone) == false) {
+        map.removeControl(legend_zielen);
+    }
+    if (map.hasLayer(formy_ochrony) == false) {
+        map.removeControl(legend_formy);
+    }
+});
