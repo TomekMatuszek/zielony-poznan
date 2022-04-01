@@ -25,6 +25,8 @@ html, body, #container{
     height: 100%;
     width: 3%;
     float: left;
+    position: relative;
+    border-bottom: 1px dotted black;
 }
 
 .menu_przycisk {
@@ -39,7 +41,7 @@ html, body, #container{
 }
 
 #title {
-    width: 94%;
+    width: 88%;
     text-align: center;
     font-size: 2vw;
     font-family: 'Times New Roman', Times, serif;
@@ -51,8 +53,8 @@ html, body, #container{
     color: #272727;
     display: block;
     position: absolute;
-    right: 40px;
-    bottom: 40px;
+    right: 20px;
+    bottom: 20px;
     height: auto;
     width: auto;
     padding: 10px;
@@ -88,9 +90,9 @@ html, body, #container{
 }
 
 .leaflet-control-layers-toggle {
-    background-image: url('layers.png')!important;
+    background-image: url('img/layers2.png')!important;
     background-color: #cee5f1;
-    background-size: 30px 30px;
+    background-size: 35px 35px;
 }
 
 .leaflet-control-layers-expanded {
@@ -126,4 +128,43 @@ html, body, #container{
     float: left;
     margin-right: 8px;
     opacity: 1;
+}
+
+.menu_side .tooltiptext {
+    visibility: hidden;
+    height: 60%;
+    width: 6vw;
+    margin-top: 40%;
+    font-size: 1vw;
+    background-color: rgb(44, 44, 44);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    left: 100%;
+    line-height: 150%;
+}
+.tooltiptextR {
+    visibility: hidden;
+    height: 60%;
+    width: 6vw;
+    margin-top: 20%;
+    font-size: 1vw;
+    background-color: rgb(44, 44, 44);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 100%;
+    line-height: 150%;
+}
+
+
+.menu_side:hover .tooltiptext {
+    visibility: visible;
+}
+.menu_side:hover .tooltiptextR {
+    visibility: visible;
 }

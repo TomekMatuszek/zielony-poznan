@@ -39,13 +39,13 @@ function layer_hover(feature, layer) {
     layer.on('mouseout', function (e) {
         this.bringToBack()
         this.setStyle({color: 'blue', fillOpacity: 0.1});
-        document.getElementById('dane').innerHTML = "Najedź na osiedle aby zobaczyć dane na jego temat";
+        document.getElementById('dane').innerHTML = "Najedź kursorem na osiedle aby zobaczyć dane na jego temat";
     });
 }
 
 // ikona pomników przyrody
 var ikona = L.icon({
-    iconUrl: 'pomnik_przyrody.png',
+    iconUrl: 'img/pomnik_przyrody.png',
     iconSize: [20, 20],
     iconAnchor: [12, 12],
     popupAnchor: [0, 0]
@@ -214,7 +214,7 @@ legend_formy.onAdd = function(map) {
                 );
         }
         div.innerHTML = labels.join('<br>');
-    labels.push('<img src="pomnik_przyrody.png" style="height:20px;width:20px;">' +
+    labels.push('<img src="img/pomnik_przyrody.png" style="height:20px;width:20px;">' +
         '<i style="height:6px;width:6px;border-radius:3px;background:#043812;margin-top:8px;"></i>&nbsp&nbspPomniki przyrody');
     div.innerHTML = labels.join('<br>');
     return div;
