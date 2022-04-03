@@ -29,6 +29,44 @@ html, body, #container{
     border-bottom: 1px dotted black;
 }
 
+.menu_side .tooltiptext {
+    visibility: hidden;
+    height: 60%;
+    width: 6vw;
+    margin-top: 40%;
+    font-size: 1vw;
+    background-color: rgb(44, 44, 44);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    left: 100%;
+    line-height: 150%;
+}
+.tooltiptextR {
+    visibility: hidden;
+    height: 60%;
+    width: 6vw;
+    margin-top: 20%;
+    font-size: 1vw;
+    background-color: rgb(44, 44, 44);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    right: 100%;
+    line-height: 150%;
+}
+
+.menu_side:hover .tooltiptext {
+    visibility: visible;
+}
+.menu_side:hover .tooltiptextR {
+    visibility: visible;
+}
+
 .menu_przycisk {
     height: 100%;
     width: 100%;
@@ -52,20 +90,58 @@ html, body, #container{
     float: left;
 }
 
-#dane {
+#about {
+    display: none;
+}
+
+#about_content {
     font-size: 24px;
     color: #272727;
     display: block;
     position: absolute;
-    right: 20px;
-    bottom: 20px;
-    height: auto;
-    width: auto;
+    right: 25%;
+    top: 25%;
+    height: 50%;
+    width: 50%;
     padding: 10px;
     background: #cee5f1;
     border-color: #272727;
     border-style: solid;
-    z-index: 5;
+    border-radius: 10px;
+    border-width: 2px;
+    opacity: 1;
+    z-index: 10;
+}
+
+#shadow {
+    font-size: 24px;
+    display: block;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #474747;
+    opacity: 0.5;
+    z-index: 9;
+}
+
+#cofnij {
+    width: 100%;
+}
+
+.krzyżyk {
+    height: 40px;
+    width: 40px;
+    border-width: 0px;
+    background-color: #cee5f1;
+    border-radius: 5px;
+    float: right;
+}
+
+.krzyżyk:hover {
+    background-color: #70afd1;
+    cursor: pointer;
 }
 
 #info_przycisk {
@@ -92,6 +168,23 @@ html, body, #container{
 #info_img:hover {
     background-color: #9fd1ec;
     cursor: pointer;
+}
+
+
+#dane {
+    font-size: 24px;
+    color: #272727;
+    display: block;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    background: #cee5f1;
+    border-color: #272727;
+    border-style: solid;
+    z-index: 5;
 }
 
 .leaflet-control-layers-toggle {
@@ -135,100 +228,9 @@ html, body, #container{
     opacity: 1;
 }
 
-.menu_side .tooltiptext {
-    visibility: hidden;
-    height: 60%;
-    width: 6vw;
-    margin-top: 40%;
-    font-size: 1vw;
-    background-color: rgb(44, 44, 44);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    left: 100%;
-    line-height: 150%;
-}
-.tooltiptextR {
-    visibility: hidden;
-    height: 60%;
-    width: 6vw;
-    margin-top: 20%;
-    font-size: 1vw;
-    background-color: rgb(44, 44, 44);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    right: 100%;
-    line-height: 150%;
-}
-
-
-.menu_side:hover .tooltiptext {
-    visibility: visible;
-}
-.menu_side:hover .tooltiptextR {
-    visibility: visible;
-}
-
 .leaflet-control-zoom-in, .leaflet-control-zoom-out {
     background-color: #cee5f1!important;
 }
 .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
     background-color: #9fd1ec!important;
-}
-
-#about {
-    display: none;
-}
-
-#about_content {
-    font-size: 24px;
-    color: #272727;
-    display: block;
-    position: absolute;
-    right: 25%;
-    top: 25%;
-    height: 50%;
-    width: 50%;
-    padding: 10px;
-    background: #cee5f1;
-    border-color: #272727;
-    border-style: solid;
-    opacity: 1;
-    z-index: 10;
-}
-
-#shadow {
-    font-size: 24px;
-    display: block;
-    top: 0px;
-    right: 0px;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #474747;
-    opacity: 0.5;
-    z-index: 9;
-}
-
-#cofnij {
-    width: 100%;
-}
-
-.krzyżyk {
-    height: 40px;
-    width: 40px;
-    border-width: 0px;
-    background-color: #cee5f1;
-    border-radius: 5px;
-    float: right;
-}
-
-.krzyżyk:hover {
-    background-color: #70afd1;
-    cursor: pointer;
 }
