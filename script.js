@@ -238,3 +238,12 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(legend_formy);
     }
 });
+
+// otwieranie i zamykanie sekcji "O mapie"
+document.getElementById("about_button").addEventListener("click", function(){
+    document.getElementById("about").style.display = 'block';
+});
+
+document.getElementById("krzyżyk").addEventListener("click", function(){
+    document.getElementById("about").style.display = 'none';
+});

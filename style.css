@@ -39,6 +39,7 @@ html, body, #container{
 
 .menu_przycisk:hover {
     background-color: #70afd1;
+    cursor: pointer;
 }
 
 #title {
@@ -46,6 +47,8 @@ html, body, #container{
     text-align: center;
     font-size: 2vw;
     font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #272727;
     float: left;
 }
 
@@ -88,6 +91,7 @@ html, body, #container{
 
 #info_img:hover {
     background-color: #9fd1ec;
+    cursor: pointer;
 }
 
 .leaflet-control-layers-toggle {
@@ -175,4 +179,56 @@ html, body, #container{
 }
 .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
     background-color: #9fd1ec!important;
+}
+
+#about {
+    display: none;
+}
+
+#about_content {
+    font-size: 24px;
+    color: #272727;
+    display: block;
+    position: absolute;
+    right: 25%;
+    top: 25%;
+    height: 50%;
+    width: 50%;
+    padding: 10px;
+    background: #cee5f1;
+    border-color: #272727;
+    border-style: solid;
+    opacity: 1;
+    z-index: 10;
+}
+
+#shadow {
+    font-size: 24px;
+    display: block;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #474747;
+    opacity: 0.5;
+    z-index: 9;
+}
+
+#cofnij {
+    width: 100%;
+}
+
+.krzyżyk {
+    height: 40px;
+    width: 40px;
+    border-width: 0px;
+    background-color: #cee5f1;
+    border-radius: 5px;
+    float: right;
+}
+
+.krzyżyk:hover {
+    background-color: #70afd1;
+    cursor: pointer;
 }
