@@ -22,11 +22,12 @@ var drzewa = L.tileLayer.wms('http://wms2.geopoz.poznan.pl/geoserver/srodowisko/
     pane: 'najniższe'
 })
 
+// FUNKCJE
 // interakcje z warstwą osiedli
 function layer_hover(feature, layer) {
-    var popupContent = "<b>Nazwa:</b> " + feature.properties.NAZWA +
-    "<br><b>L. mieszkańców:</b> " + feature.properties.LICZBA_MIESZKANCOW;
-    layer.bindPopup(popupContent);
+    var popupContent = "<center><b>Osiedle:</b> " + feature.properties.NAZWA +
+    "<br><b>Pokrycie terenami zielonymi:</b> " + feature.properties.pokrycie_zielenia + "%";
+    layer.bindPopup(popupContent, {className: 'popupCustom'});
 
     layer.on('mouseover', function (e) {
         this.bringToFront();
@@ -65,7 +66,7 @@ function pomniki_popup(feature, layer){
     if (gatunek == 'brak danych') {
         var gatunek = "<span style='color:red'>brak danych</span>"
     };
-    layer.bindPopup("<b><u><center>Pomnik przyrody</center></u><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> <i>" + gatunek)
+    layer.bindPopup("<b><u><center>Pomnik przyrody</center></u><br>Rodzaj:</b> " + feature.properties.obiekt + "<br><b>Gatunek:</b> <i>" + gatunek, {className: 'popupCustom'})
 }
 
 // dodawanie odpowiedniej ikony pomników w zależności od zoomu
@@ -79,58 +80,82 @@ map.on('zoomend', function(ev){
     }
 });
 
+// kolory legendy
+function getColor_zielen(x) {
+    return x == 'Cmentarze' ? "#a7c4a9" :
+           x == 'Obiekt sportowy' ? "#a4d977" :
+           x == 'Ogród działkowy' ? "#94e0af" :
+           x == 'Parki i skwery' ? "#35c841" :
+           x == 'Zieleń' ? "green":
+           x == 'Fort' ? "#909e83":
+                        "green";
+}
+
+function getColor_formy(x) {
+    return x == 'Rezerwaty' ? "#4f9839" :
+           x == 'Obszary Natura 2000' ? "#4ac626" :
+           x == 'Użytki ekologiczne' ? "#bae537" :
+           x == 'Obszary chronionego krajobrazu' ? "#82c338" :
+                        "green";
+}
+
 // WARSTWY
+// granice
 var admin = L.geoJson(poznan_admin, {color: 'blue', fillOpacity: 0.1, weight: 2,
     pane: 'średnie',
     onEachFeature: layer_hover
 });
 var poznan = L.geoJson(poznan, {color: 'black', weight: 4, pane: 'najwyższe'}).addTo(map);
+
+// tereny zielone
 var tereny_zielone = L.geoJson(tereny_zielone, {
     onEachFeature: function(feature, layer) {
         var nazwa = feature.properties.NAZWA;
         if (nazwa == null) {
             var nazwa = "<span style='color:red'>brak</span>"
         };
-        layer.bindPopup("<b>Rodzaj: </b> " + feature.properties.RODZAJ + "<br><b>Nazwa: </b> " + nazwa);
+        layer.bindPopup("<b>Rodzaj: </b> " + feature.properties.RODZAJ + "<br><b>Nazwa: </b> " + nazwa, {className: 'popupCustom'});
     },
     style: function(feature) {
         typ = feature.properties.RODZAJ;
-        return typ == 'Cmentarz inny' || typ == 'Cmentarz komunalny' || typ == 'Cmentarz parafialny' ? {color: '#9dcea1', weight: 0, fillOpacity: 1, pane: 'niskie'}:
-            typ == 'Obiekt sportowy' ? {color: '#bdee93', weight: 0, fillOpacity: 1, pane: 'niskie'}:
-            typ == 'Ogród działkowy' ? {color: '#93eeb3', weight: 0, fillOpacity: 1, pane: 'niskie'}:
+        return typ == 'Cmentarz inny' || typ == 'Cmentarz komunalny' || typ == 'Cmentarz parafialny' ? {color: '#a7c4a9', weight: 0, fillOpacity: 1, pane: 'niskie'}:
+            typ == 'Obiekt sportowy' ? {color: '#a4d977', weight: 0, fillOpacity: 1, pane: 'niskie'}:
+            typ == 'Ogród działkowy' ? {color: '#94e0af', weight: 0, fillOpacity: 1, pane: 'niskie'}:
             typ == 'Park' || typ == 'Skwer' ? {color: '#35c841', weight: 0, fillOpacity: 1, pane: 'niskie'}:
             typ == 'Zieleń' ? {color: 'green', weight: 0, fillOpacity: 1, pane: 'niskie'}:
-            typ == 'Fort' ? {color: '#a9c393', weight: 0, fillOpacity: 1, pane: 'najniższe'}:
+            typ == 'Fort' ? {color: '#909e83', weight: 0, fillOpacity: 1, pane: 'najniższe'}:
                 {color: 'green', weight: 0, fillOpacity: 1, pane: 'niskie'};
     }
 });
+
+// formy ochrony przyrody
 var pomniki_pkt = L.geoJson(pomniki, {pointToLayer: pomniki_punkty, pane: 'wysokie', onEachFeature: pomniki_popup});
 var pomniki_icon = L.geoJson(pomniki, {pointToLayer: pomniki_ikony, pane: 'wysokie', onEachFeature: pomniki_popup});
-var rezerwaty = L.geoJson(rezerwaty, {color: '#4f9839', fillOpacity: 0.4, pane: 'wysokie',
+var rezerwaty = L.geoJson(rezerwaty, {color: '#387a25', fillOpacity: 0.5, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><u><center>Rezerwat</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Rezerwat</center></u><br>Nazwa:</b> " + feature.properties.nazwa, {className: 'popupCustom'});
 }
 });
-var natura2000 = L.geoJson(natura2000, {color: '#4ac626', fillOpacity: 0.4, pane: 'wysokie',
+var natura2000 = L.geoJson(natura2000, {color: '#4ac626', fillOpacity: 0.5, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><u><center>Obszar Natura 2000</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Obszar Natura 2000</center></u><br>Nazwa:</b> " + feature.properties.nazwa, {className: 'popupCustom'});
 }
 });
-var obszary_krajobrazu = L.geoJson(obszary_krajobrazu, {color: '#82c338', fillOpacity: 0.4, pane: 'wysokie',
+var obszary_krajobrazu = L.geoJson(obszary_krajobrazu, {color: '#82c338', fillOpacity: 0.5, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><u><center>Obszar chronionego krajobrazu</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Obszar chronionego krajobrazu</center></u><br>Nazwa:</b> " + feature.properties.nazwa, {className: 'popupCustom'});
 }
 });
-var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: '#bae537', fillOpacity: 0.4, pane: 'wysokie',
+var uzytki_ekologiczne = L.geoJson(uzytki_ekologiczne, {color: '#bae537', fillOpacity: 0.5, pane: 'wysokie',
 onEachFeature: function(feature, layer) {
-    layer.bindPopup("<b><u><center>Użytek ekologiczny</center></u><br>Nazwa:</b> " + feature.properties.nazwa);
+    layer.bindPopup("<b><u><center>Użytek ekologiczny</center></u><br>Nazwa:</b> " + feature.properties.nazwa, {className: 'popupCustom'});
 }
 });
 
-// stworzenie grupy warstw dla form ochrony przyrody
 var formy_ochrony = L.layerGroup([pomniki_pkt, rezerwaty, natura2000, obszary_krajobrazu, uzytki_ekologiczne]);
 
-// dodanie geokodera OSM
+// CONTROLS
+// geokoder OSM
 var osmGeocoder = new L.Control.OSMGeocoder({text: 'Wyszukaj', placeholder: 'wpisz nazwę...', bounds: L.LatLngBounds(poznan),
                                             collapsed: true, position: 'topleft'}).addTo(map);
 
@@ -164,31 +189,13 @@ document.getElementById("info_przycisk").addEventListener("click", function(){
     }
 });
 
-// funkcje kolorów legendy
-function getColor_zielen(x) {
-    return x == 'Cmentarze' ? "#9dcea1" :
-           x == 'Obiekt sportowy' ? "#bdee93" :
-           x == 'Ogród działkowy' ? "#93eeb3" :
-           x == 'Parki i skwery' ? "#35c841" :
-           x == 'Zieleń' ? "green":
-           x == 'Fort' ? "#a9c393":
-                        "green";
-}
-
-function getColor_formy(x) {
-    return x == 'Rezerwaty' ? "#4f9839" :
-           x == 'Obszary Natura 2000' ? "#4ac626" :
-           x == 'Użytki ekologiczne' ? "#bae537" :
-           x == 'Obszary chronionego krajobrazu' ? "#82c338" :
-                        "green";
-}
-
+// LEGENDA
 // legenda warstwy terenów zielonych
 var legend_zielen = L.control({position: 'bottomleft'});
 legend_zielen.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<strong><span style='line-height:30px;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTypy terenów zielonych</span></strong>"],
-    categories = ['Cmentarze', 'Obiekt sportowy', 'Ogród działkowy', 'Parki i skwery', 'Zieleń', 'Fort'];
+    labels = ["<span style='font-size:18px;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTypy terenów zielonych</strong>"],
+    categories = ['Parki i skwery', 'Zieleń','Obiekt sportowy', 'Ogród działkowy', 'Cmentarze', 'Fort'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
@@ -204,8 +211,8 @@ legend_zielen.onAdd = function(map) {
 var legend_formy = L.control({position: 'bottomleft'});
 legend_formy.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<strong><span style='line-height: 30px;'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFormy ochrony przyrody</span></strong>"],
-    categories = ['Rezerwaty', 'Natura 2000', 'Użytki ekologiczne', 'Obszary chronionego krajobrazu'];
+    labels = ["<span style='font-size:18px;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFormy ochrony przyrody</strong>"],
+    categories = ['Rezerwaty', 'Obszary Natura 2000', 'Użytki ekologiczne', 'Obszary chronionego krajobrazu'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
@@ -215,7 +222,7 @@ legend_formy.onAdd = function(map) {
         }
         div.innerHTML = labels.join('<br>');
     labels.push('<img src="img/pomnik_przyrody.png" style="height:20px;width:20px;">' +
-        '<i style="height:6px;width:6px;border-radius:3px;background:#043812;margin-top:8px;"></i>&nbsp&nbspPomniki przyrody');
+        '<i style="height:6px;width:6px;border-radius:6px;background:#043812;margin-top:8px;"></i>&nbsp&nbspPomniki przyrody');
     div.innerHTML = labels.join('<br>');
     return div;
 };

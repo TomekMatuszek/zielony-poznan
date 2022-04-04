@@ -21,7 +21,6 @@
         <script src="wektory/uzytki_ekologiczne.geojson" type="text/javascript"></script>
         <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="lib/L.Geoserver.js"></script>
         <script src="lib/Control.OSMGeocoder.js"></script>
         <link rel="stylesheet" href="lib/Control.OSMGeocoder.css" />
     </head>
@@ -50,11 +49,26 @@
                 <div id="about_content">
                     <div id="cofnij"><button class="krzyżyk" id="krzyżyk"><img src="img/cross.png" style="height:20px;width:20px;"></button></div>
                     <div id="tekst">
-                        <p style="font-size:30px;font-style:italic;font-weight:bold;text-align:center;">O mapie</p>
-                        <p style="text-align:justify;padding:10px;">
-                            Nazywam się Tomasz Matuszek i jestem studentem III roku geoinformacji na UAM.
-                            Tę mapę stworzyłem na zaliczenie z przedmiotu kartografia internetowa. Przedstawia tereny zielone i obszary chronione Poznania.
+                        <p style="font-size:30px;font-style:italic;font-weight:bold;text-align:center;margin:5px 0px 0px 0px;">O mapie</p>
+                        <span style="font-size:18px;text-align:justify;"><p>
+                            Ta mapa interaktywna powstała jako projekt zaliczeniowy na przedmiot Kartografia Internetowa.
+                            Została stworzona przez Tomasza Matuszka - studenta III roku geoinformacji na Wydziale Nauk Geograficznych i Geologicznych UAM. <br>
+                            Użytkownik może przeglądnąć warstwy takie jak:
+                            <ul>
+                                <li>granica miasta Poznania, źródło: GUGiK</li>
+                                <li>granice osiedli (jednostek pomocniczych m. Poznania), źródło: System Informacji Przestrzennej Poznania</li>
+                                <li>tereny zielone w Poznaniu, źródło: SIP Poznania</li>
+                                <li>formy ochrony przyrody w Poznaniu, źródło: GDOŚ</li>
+                                <li>Mapa wysokości drzew w Poznaniu, źródło: SIP Poznania (WMS)</li>
+                             </ul>
                         </p>
+                        <p>
+                            Po kliknięciu na wybrany teren zielony lub formę ochrony przyrody wyświetlą się podstawowe informacje na ich temat, takie jak nazwa i typ.
+                            Po najechaniu kursorem na jedno z osiedli oraz włączeniu oknienka z informacjami przy pomocy przycisku pod wyborem warstw,
+                            w prawym dolnym rogu ekranu będzie można przejrzeć statystyki dotyczące wybranego osiedla - liczbę mieszkańców, gęstość zaludnienia,
+                            a także procent terytorium pokryty warstwą terenów zielonych (analiza wykonana przy pomocy programu QGIS).<br>
+                            Oprócz warstw wektorowych, dostępne są również dwie mapy podkładowe: OpenStreetMap oraz przygotowany przeze mnie przy pomocy Mapbox Studio podkład ze zdjęć satelitarnych.
+                        </p></span>
                     </div>
                 </div>
             </div>

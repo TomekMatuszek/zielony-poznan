@@ -1,6 +1,8 @@
+/* OGÓLNE */
 body {
     padding: 0;
     margin: 0;
+    font-family: 'Georgia', serif;
 }
 html, body, #container{
     height: 100%;
@@ -12,6 +14,7 @@ html, body, #container{
     z-index: 0;
 }
 
+/* MENU */
 #menu {
     width: 100%;
     height: 6%;
@@ -84,12 +87,12 @@ html, body, #container{
     width: 88%;
     text-align: center;
     font-size: 2vw;
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #272727;
     float: left;
 }
 
+/* SEKCJA O MAPIE */
 #about {
     display: none;
 }
@@ -144,6 +147,7 @@ html, body, #container{
     cursor: pointer;
 }
 
+/* PRZYCISK INFO */
 #info_przycisk {
     position: absolute;
     right: 25px;
@@ -170,7 +174,7 @@ html, body, #container{
     cursor: pointer;
 }
 
-
+/* OKIENKO Z DANYMI O OSIEDLACH */
 #dane {
     font-size: 24px;
     color: #272727;
@@ -187,6 +191,7 @@ html, body, #container{
     z-index: 5;
 }
 
+/* LAYER CONTROL */
 .leaflet-control-layers-toggle {
     background-image: url('img/layers2.png')!important;
     background-color: #cee5f1;
@@ -195,10 +200,9 @@ html, body, #container{
 
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
-	color: #333!important;
+	color: #272727!important;
 	background: #cee5f1!important;
     font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .leaflet-control-layers-separator {
@@ -206,10 +210,10 @@ html, body, #container{
 	margin: 5px -10px 5px -6px;
 }
 
+/* LEGENDA */
 .info {
     padding: 6px 8px;
-    font: 20px 'Times New Roman', Times, serif;
-    background: rgba(255,255,255,0.9);
+    background: rgba(206, 229, 241,0.9);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 }
@@ -223,14 +227,22 @@ html, body, #container{
 .legend i {
     width: 15px;
     height: 15px;
+    border-style: solid;
+    border-width: 1px;
     float: left;
     margin-right: 8px;
     opacity: 1;
 }
 
+/* ZOOM i POPUPY */
 .leaflet-control-zoom-in, .leaflet-control-zoom-out {
     background-color: #cee5f1!important;
 }
 .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
     background-color: #9fd1ec!important;
+}
+
+.popupCustom .leaflet-popup-tip, .popupCustom .leaflet-popup-content-wrapper {
+    background: #cee5f1;
+    color: #272727;
 }
