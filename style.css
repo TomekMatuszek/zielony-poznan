@@ -17,7 +17,7 @@ html, body, #container{
 /* MENU */
 #menu {
     width: 100%;
-    height: 6%;
+    height: 2.8vw;
     line-height: 2.5vw;
     background-color: #cee5f1;
     border-bottom: 2px solid #272727;
@@ -98,14 +98,13 @@ html, body, #container{
 }
 
 #about_content {
-    font-size: 24px;
     color: #272727;
     display: block;
     position: absolute;
     right: 25%;
     top: 25%;
-    height: 50%;
-    width: 50%;
+    height: 25vw;
+    width: 50vw;
     padding: 10px;
     background: #cee5f1;
     border-color: #272727;
@@ -117,7 +116,6 @@ html, body, #container{
 }
 
 #shadow {
-    font-size: 24px;
     display: block;
     top: 0px;
     right: 0px;
@@ -176,7 +174,7 @@ html, body, #container{
 
 /* OKIENKO Z DANYMI O OSIEDLACH */
 #dane {
-    font-size: 24px;
+    font-size: 1.5vw;
     color: #272727;
     display: block;
     position: absolute;
@@ -219,14 +217,14 @@ html, body, #container{
 }
 
 .legend {
-    line-height: 24px;
-    width: 300px;
+    line-height: 1.2vw;
+    width: 16vw;
     color: #555;
 }
 
 .legend i {
-    width: 15px;
-    height: 15px;
+    height: 0.9vw;
+    width: 0.9vw;
     border-style: solid;
     border-width: 1px;
     float: left;

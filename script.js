@@ -194,13 +194,13 @@ document.getElementById("info_przycisk").addEventListener("click", function(){
 var legend_zielen = L.control({position: 'bottomleft'});
 legend_zielen.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<span style='font-size:18px;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTypy terenów zielonych</strong>"],
+    labels = ["<span style='font-size:1vw;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTypy terenów zielonych</strong>"],
     categories = ['Parki i skwery', 'Zieleń','Obiekt sportowy', 'Ogród działkowy', 'Cmentarze', 'Fort'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
             labels.push(
-                '<i style="height:20px;width:20px;background:' + getColor_zielen(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                '<i style="height:0.9vw;width:0.9vw;background:' + getColor_zielen(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
                 );
         }
         div.innerHTML = labels.join('<br>');
@@ -211,18 +211,18 @@ legend_zielen.onAdd = function(map) {
 var legend_formy = L.control({position: 'bottomleft'});
 legend_formy.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'info legend');
-    labels = ["<span style='font-size:18px;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFormy ochrony przyrody</strong>"],
+    labels = ["<span style='font-size:1vw;'><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFormy ochrony przyrody</strong>"],
     categories = ['Rezerwaty', 'Obszary Natura 2000', 'Użytki ekologiczne', 'Obszary chronionego krajobrazu'];
     
     for (var i = 0; i < categories.length; i++) {
             div.innerHTML += 
             labels.push(
-                '<i style="height:20px;width:20px;background:' + getColor_formy(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
+                '<i style="height:0.9vw;width:0.9vw;background:' + getColor_formy(categories[i]) + '"></i> ' + (categories[i] ? categories[i] : '+')
                 );
         }
         div.innerHTML = labels.join('<br>');
-    labels.push('<img src="img/pomnik_przyrody.png" style="height:20px;width:20px;">' +
-        '<i style="height:6px;width:6px;border-radius:6px;background:#043812;margin-top:8px;"></i>&nbsp&nbspPomniki przyrody');
+    labels.push('<img src="img/pomnik_przyrody.png" style="height:0.9vw;width:0.9vw;">' +
+        '<i style="height:0.2vw;width:0.2vw;border-radius:0.2vw;background:#043812;margin-top:0.4vw;"></i>&nbsp&nbspPomniki przyrody');
     div.innerHTML = labels.join('<br>');
     return div;
 };
